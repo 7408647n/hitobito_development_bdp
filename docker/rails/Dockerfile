@@ -11,6 +11,8 @@ ARG BUNDLER_VERSION="2.5.11"
 ARG NODEJS_VERSION="16"
 ARG YARN_VERSION="1.22.19"
 ARG TRANSIFEX_VERSION="1.6.4"
+ARG TARGETARCH
+ARG ARCH="amd64"
 
 # Packages
 ARG BUILD_PACKAGES="nodejs git sqlite3 libsqlite3-dev imagemagick build-essential libvips42"
@@ -21,6 +23,9 @@ ARG DEV_PACKAGES="direnv xvfb chromium chromium-driver pv vim curl less sudo doc
 #################################
 
 FROM ruby:${RUBY_VERSION} AS build
+ARG TARGETARCH
+ARG ARCH
+ENV ARCH=${TARGETARCH:-${ARCH}}
 
 USER root
 
@@ -63,7 +68,7 @@ ARG YARN_VERSION
 RUN node -v && npm -v && npm install -g yarn && yarn set version "${YARN_VERSION}"
 
 ARG TRANSIFEX_VERSION
-RUN curl -L "https://github.com/transifex/cli/releases/download/v${TRANSIFEX_VERSION}/tx-linux-amd64.tar.gz" | tar xz -C /usr/local/bin/
+RUN curl -L "https://github.com/transifex/cli/releases/download/v${TRANSIFEX_VERSION}/tx-linux-${ARCH}.tar.gz" | tar xz -C /usr/local/bin/
 
 ARG BUNDLER_VERSION
 RUN bash -vxc "gem install bundler -v ${BUNDLER_VERSION}"

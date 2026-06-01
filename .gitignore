@@ -9,3 +9,4 @@
 docker/rails/Gemfile.lock
 app/*
 !app/app.code-workspace
+.DS_Store
