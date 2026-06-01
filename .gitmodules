@@ -1,0 +1,4 @@
+[submodule "app"]
+	path = app
+	url = https://github.com/hitobito/ose_composition_bdp.git
+	branch = devel
