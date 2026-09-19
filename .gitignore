@@ -13,8 +13,6 @@
 /docker/rails/home/.local/*
 !**/.gitkeep
 /shared/.env.generated
-/hitobito
-/hitobito_*
 /ose_composition_*
 /worktrees
 .DS_Store

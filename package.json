@@ -1,0 +1,6 @@
+{
+    "scripts": {
+        "docker:start": "docker compose up -d --remove-orphans",
+        "docker:stop": "docker compose down"
+    }
+}

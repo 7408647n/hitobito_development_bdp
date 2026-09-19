@@ -1,0 +1,4 @@
+[submodule "vendor/ose_composition_bdp"]
+	path = vendor/ose_composition_bdp
+	url = https://github.com/hitobito/ose_composition_bdp.git
+	branch = devel
