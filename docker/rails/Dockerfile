@@ -65,7 +65,7 @@ ARG YARN_VERSION
 RUN node -v && npm -v && npm install -g yarn && yarn set version "${YARN_VERSION}"
 
 ARG TRANSIFEX_VERSION
-RUN curl -L "https://github.com/transifex/cli/releases/download/v${TRANSIFEX_VERSION}/tx-linux-amd64.tar.gz" | tar xz -C /usr/local/bin/
+RUN curl -L "https://github.com/transifex/cli/releases/download/v${TRANSIFEX_VERSION}/tx-linux-$(dpkg --print-architecture).tar.gz" | tar xz -C /usr/local/bin/
 
 ARG BUNDLER_VERSION
 RUN bash -vxc "gem install bundler -v ${BUNDLER_VERSION}"
